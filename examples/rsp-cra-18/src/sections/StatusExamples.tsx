@@ -1,28 +1,34 @@
 import {
-  Flex,
-  Divider,
   Badge,
-  InlineAlert,
-  Heading,
+  Button,
   Content,
+  Divider,
+  Heading,
+  InlineAlert,
   LabeledValue,
   Meter,
   ProgressBar,
   ProgressCircle,
+  Provider,
   StatusLight,
-  Button,
   ToastContainer,
   ToastQueue
-} from '@adobe/react-spectrum';
+} from '@react-spectrum/s2';
+import {style} from '@react-spectrum/s2/style' with {type: 'macro'};
 
 export default function StatusExamples() {
   return (
-    <>
-      <h2>Status</h2>
-      <Flex direction="column" gap="size-125">
+    <Provider>
+      <h2 className={style({font: 'heading'})}>Status</h2>
+      <div
+        className={style({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 10
+        })}>
         <Divider />
         <Badge variant="positive">Licensed</Badge>
-        <InlineAlert width="700px">
+        <InlineAlert styles={style({width: 700})}>
           <Heading>Payment Information</Heading>
           <Content>
             Enter your billing address, shipping address, and payment method to complete your
@@ -38,12 +44,12 @@ export default function StatusExamples() {
         <StatusLight variant="positive">Ready</StatusLight>
         <ToastContainer />
         <Button
-          width="110px"
+          styles={style({width: 110})}
           onPress={() => ToastQueue.positive('Toast is done!')}
           variant="primary">
           Show toast
         </Button>
-      </Flex>
-    </>
+      </div>
+    </Provider>
   );
 }
