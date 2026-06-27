@@ -16,13 +16,13 @@ import {
   TextArea,
   TextField
 } from '@react-spectrum/s2';
-import {style} from '@react-spectrum/s2/style' with {type: 'macro'};
+import {space, style} from '@react-spectrum/s2/style' with {type: 'macro'};
 
 export default function FormExamples() {
   return (
     <>
       <h2>Forms</h2>
-      <div className={style({display: 'flex', flexDirection: 'column', gap: 10})}>
+      <div className={style({display: 'flex', flexDirection: 'column', gap: space(10)})}>
         <Divider />
         <Form styles={style({maxWidth: 288})}>
           <ComboBox label="Favorite Animal">
