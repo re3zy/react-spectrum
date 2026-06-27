@@ -27,7 +27,7 @@ export default function FormExamples() {
         className={style({
           display: 'flex',
           flexDirection: 'column',
-          gap: 10
+          gap: '[10px]'
         })}>
         <Divider />
         <Form styles={style({maxWidth: 288})}>
