@@ -8,7 +8,6 @@ import {
   Text,
   useFilter
 } from 'react-aria-components';
-import {classNames} from '@adobe/react-spectrum/private/utils/classNames';
 import styles from './autocomplete.css';
 
 interface AutocompleteItem {
@@ -21,6 +20,27 @@ let items: AutocompleteItem[] = [
   {id: '2', name: 'Bar'},
   {id: '3', name: 'Baz'}
 ];
+
+function classNames(
+  cssModule: {[key: string]: string},
+  ...values: Array<string | {[key: string]: boolean} | undefined>
+): string {
+  return values
+    .flatMap(value => {
+      if (!value) {
+        return [];
+      }
+
+      if (typeof value === 'string') {
+        return cssModule[value] || value;
+      }
+
+      return Object.keys(value)
+        .filter(key => value[key])
+        .map(key => cssModule[key] || key);
+    })
+    .join(' ');
+}
 
 export function AutocompleteExample() {
   let {contains} = useFilter({sensitivity: 'base'});
