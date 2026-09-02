@@ -8,12 +8,24 @@ import {
   Text,
   useFilter
 } from 'react-aria-components';
-import {classNames} from '@adobe/react-spectrum/private/utils/classNames';
 import styles from './autocomplete.css';
 
 interface AutocompleteItem {
   id: string;
   name: string;
+}
+
+function classNames(
+  styles: Record<string, string> | undefined,
+  className: string,
+  states: Record<string, boolean>
+) {
+  return [
+    styles?.[className] || className,
+    ...Object.keys(states)
+      .filter(state => states[state])
+      .map(state => styles?.[state] || state)
+  ].join(' ');
 }
 
 let items: AutocompleteItem[] = [

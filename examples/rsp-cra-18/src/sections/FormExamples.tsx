@@ -1,37 +1,38 @@
 import {
-  Flex,
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  ComboBox,
+  ComboBoxItem,
   Divider,
   Form,
-  ComboBox,
-  Item,
-  Button,
-  TextField,
-  RadioGroup,
-  Radio,
-  CheckboxGroup,
-  Checkbox,
   NumberField,
+  Radio,
+  RadioGroup,
   RangeSlider,
   SearchField,
   Slider,
   Switch,
-  TextArea
-} from '@adobe/react-spectrum';
+  TextArea,
+  TextField
+} from '@react-spectrum/s2';
+import '@react-spectrum/s2/page.css';
+import {space, style} from '@react-spectrum/s2/style' with {type: 'macro'};
 
 export default function FormExamples() {
   return (
     <>
       <h2>Forms</h2>
-      <Flex direction="column" gap="size-125">
+      <div className={style({display: 'flex', flexDirection: 'column', gap: space(10)})}>
         <Divider />
-        <Form maxWidth="size-3600">
+        <Form styles={style({maxWidth: 288})}>
           <ComboBox label="Favorite Animal">
-            <Item key="red panda">Red Panda</Item>
-            <Item key="cat">Cat</Item>
-            <Item key="dog">Dog</Item>
-            <Item key="aardvark">Aardvark</Item>
-            <Item key="kangaroo">Kangaroo</Item>
-            <Item key="snake">Snake</Item>
+            <ComboBoxItem id="red panda">Red Panda</ComboBoxItem>
+            <ComboBoxItem id="cat">Cat</ComboBoxItem>
+            <ComboBoxItem id="dog">Dog</ComboBoxItem>
+            <ComboBoxItem id="aardvark">Aardvark</ComboBoxItem>
+            <ComboBoxItem id="kangaroo">Kangaroo</ComboBoxItem>
+            <ComboBoxItem id="snake">Snake</ComboBoxItem>
           </ComboBox>
           <TextField label="First Name" />
           <TextField label="Last Name" />
@@ -51,9 +52,9 @@ export default function FormExamples() {
           <Slider label="Cookies to buy" defaultValue={12} />
           <Switch>Low power mode</Switch>
           <TextArea label="Description" />
-          <Button variant="cta">Click Me</Button>
+          <Button variant="accent">Click Me</Button>
         </Form>
-      </Flex>
+      </div>
     </>
   );
 }
