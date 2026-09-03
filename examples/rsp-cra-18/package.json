@@ -4,9 +4,9 @@
   "private": true,
   "homepage": ".",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "install-17": "yarn add -W react@^17 react-dom@^17"
   },
@@ -16,6 +16,7 @@
     "@babel/preset-react": "^7.24.1",
     "@react-aria/dnd": "latest",
     "@react-spectrum/provider": "latest",
+    "@react-spectrum/s2": "^1.7.0",
     "@spectrum-icons/illustrations": "latest",
     "@spectrum-icons/workflow": "latest",
     "@testing-library/jest-dom": "^5.16.4",
@@ -31,6 +32,11 @@
     "react-scripts": "5.0.1",
     "typescript": "5.8.2",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@parcel/css": "^1.14.0",
+    "react-app-rewired": "^2.2.1",
+    "unplugin-parcel-macros": "^0.2.0"
   },
   "browserslist": {
     "production": [
